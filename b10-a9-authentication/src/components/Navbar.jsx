@@ -40,7 +40,7 @@ const AppNavbar = () => {
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography as="a" href="/" className="mr-4 cursor-pointer py-1.5 font-medium">
           <img src={logo} alt="Logo" className="h-12 w-12 rounded-full inline-block mr-2"/>
-          Career Counseling
+          Career Inspire
         </Typography>
         <div className="flex items-center gap-4">
           <div className="mr-4 hidden lg:block">{navList}</div>
