@@ -1,0 +1,10 @@
+
+.slider-image {
+    max-height: 500px; 
+    width: 100%; 
+    object-fit: cover; 
+    object-position: center; 
+    display: block; 
+    margin: 0 auto; 
+  }
+  
