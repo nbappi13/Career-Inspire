@@ -5,6 +5,7 @@ import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 import Login from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
 import Profile from "../pages/Profile/Profile";
+import ForgotPassword from "../pages/Authentication/ForgotPassword";
 import ProtectedRoute from "../components/ProtectedRoute";
 import AuthProvider from "../context/AuthContext";
 
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             }
           ],
         },
+        {
+          path: "forgot-password",
+          element: <ForgotPassword />,
+        }
     ]
   },
 ]);

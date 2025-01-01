@@ -82,6 +82,7 @@ const Login = () => {
             </form>
             <button onClick={handleGoogleLogin} className="google-login-button">Login with Google</button>
             <button onClick={handleGithubLogin} className="github-login-button">Login with GitHub</button>
+            <p>Forgot your password? <Link to={`/forgot-password?email=${email}`}>Reset here</Link></p>
             <p>Don't have an account? <Link to="/signup">Create one!</Link></p>
         </div>
     );
