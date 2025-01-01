@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Navbar, MobileNav, Typography, Button, IconButton } from '@material-tailwind/react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 import logo from '../assets/logo.png';
 
 const AppNavbar = () => {
   const [openNav, setOpenNav] = React.useState(false);
+  const { currentUser, logout } = useContext(AuthContext);
 
   React.useEffect(() => {
     window.addEventListener('resize', () => window.innerWidth >= 960 && setOpenNav(false));
   }, []);
+
+  const handleLogout = () => {
+    logout();
+  };
 
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
@@ -45,12 +51,28 @@ const AppNavbar = () => {
         <div className="flex items-center gap-4">
           <div className="mr-4 hidden lg:block">{navList}</div>
           <div className="hidden lg:flex items-center gap-2">
-            <Button variant="text" size="sm" className="hidden lg:inline-block">
-              <Link to="/login">Login</Link>
-            </Button>
-            <Button variant="gradient" size="sm" className="hidden lg:inline-block">
-              <Link to="/signup">Sign Up</Link>
-            </Button>
+            {currentUser ? (
+              <>
+                <div className="relative group">
+                  <img src={currentUser.photoURL} alt="User" className="h-10 w-10 rounded-full"/>
+                  <div className="absolute top-full mt-2 hidden group-hover:block bg-white text-gray-800 text-sm rounded-lg p-2 shadow-lg">
+                    {currentUser.displayName}
+                  </div>
+                </div>
+                <Button variant="text" size="sm" className="hidden lg:inline-block" onClick={handleLogout}>
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button variant="text" size="sm" className="hidden lg:inline-block">
+                  <Link to="/login">Login</Link>
+                </Button>
+                <Button variant="gradient" size="sm" className="hidden lg:inline-block">
+                  <Link to="/signup">Sign Up</Link>
+                </Button>
+              </>
+            )}
           </div>
           <IconButton
             variant="text"
@@ -73,12 +95,28 @@ const AppNavbar = () => {
       <MobileNav open={openNav}>
         {navList}
         <div className="flex items-center gap-2">
-          <Button fullWidth variant="text" size="sm" className="">
-            <Link to="/login">Login</Link>
-          </Button>
-          <Button fullWidth variant="gradient" size="sm" className="">
-            <Link to="/signup">Sign Up</Link>
-          </Button>
+          {currentUser ? (
+            <>
+              <div className="relative group">
+                <img src={currentUser.photoURL} alt="User" className="h-10 w-10 rounded-full"/>
+                <div className="absolute top-full mt-2 hidden group-hover:block bg-white text-gray-800 text-sm rounded-lg p-2 shadow-lg">
+                  {currentUser.displayName}
+                </div>
+              </div>
+              <Button fullWidth variant="text" size="sm" onClick={handleLogout}>
+                Logout
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button fullWidth variant="text" size="sm">
+                <Link to="/login">Login</Link>
+              </Button>
+              <Button fullWidth variant="gradient" size="sm">
+                <Link to="/signup">Sign Up</Link>
+              </Button>
+            </>
+          )}
         </div>
       </MobileNav>
     </Navbar>
