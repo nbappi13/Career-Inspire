@@ -38,6 +38,13 @@ const AppNavbar = () => {
           About
         </Link>
       </Typography>
+      {currentUser && (
+        <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
+          <Link to="/profile" className="flex items-center">
+            My Profile
+          </Link>
+        </Typography>
+      )}
     </ul>
   );
 

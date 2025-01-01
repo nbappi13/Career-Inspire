@@ -4,6 +4,7 @@ import Home from "../pages/home/Home";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 import Login from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
+import Profile from "../pages/Profile/Profile";
 import ProtectedRoute from "../components/ProtectedRoute";
 import AuthProvider from "../context/AuthContext";
 
@@ -29,10 +30,13 @@ const router = createBrowserRouter([
           element: <Register />,
         },
         {
-          path: "protected",
+          path: "profile",
           element: <ProtectedRoute />,
           children: [
-           
+            {
+              path: "/profile",
+              element: <Profile />,
+            }
           ],
         },
     ]
