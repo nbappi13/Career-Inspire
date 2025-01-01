@@ -3,6 +3,8 @@ import { AuthContext } from '../../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider, GithubAuthProvider, createUserWithEmailAndPassword, updateProfile, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../firebase/firebase.config';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/Register.css'; 
 
 const Register = () => {
@@ -10,6 +12,7 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [photoURL, setPhotoURL] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const { login } = useContext(AuthContext);
     const navigate = useNavigate();
     const googleProvider = new GoogleAuthProvider();
@@ -47,6 +50,10 @@ const Register = () => {
         }
     };
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
         <div className="register-container">
             <h2>Sign Up</h2>
@@ -80,10 +87,10 @@ const Register = () => {
                         onChange={(e) => setPhotoURL(e.target.value)}
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group relative">
                     <label htmlFor="password">Password:</label>
                     <input
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         id="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -91,6 +98,12 @@ const Register = () => {
                         pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}"
                         title="Must contain at least one uppercase and lowercase letter, and at least 6 characters long"
                     />
+                    <span
+                        className="absolute inset-y-0 right-0 pr-3 mt-5 flex items-center cursor-pointer"
+                        onClick={togglePasswordVisibility}
+                    >
+                        <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                    </span>
                 </div>
                 <button type="submit" className="register-button">Sign up</button>
             </form>
