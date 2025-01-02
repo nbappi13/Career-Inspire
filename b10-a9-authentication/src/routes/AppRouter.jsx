@@ -8,7 +8,7 @@ import Profile from "../pages/Profile/Profile";
 import ForgotPassword from "../pages/Authentication/ForgotPassword";
 import ProtectedRoute from "../components/ProtectedRoute";
 import AuthProvider from "../context/AuthContext";
-
+import NotFound from "../pages/NotFound/NotFound"; // Import NotFound
 
 const router = createBrowserRouter([
   {
@@ -50,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "forgot-password",
         element: <ForgotPassword />,
+      },
+      {
+        path: "*",
+        element: <NotFound />, // Catch-all route for 404 Not Found page
       }
     ]
   },
