@@ -14,9 +14,20 @@ const CommentsSection = ({ serviceId, onCommentAdded }) => {
     }, [serviceId]);
 
     const handleAddComment = () => {
+        if (newComment.trim() === '') {
+            toast.error('Comment cannot be empty', {
+                autoClose: 3000,
+                closeButton: false,
+            });
+            return;
+        }
         setComment(newComment);
         localStorage.setItem(`comment-${serviceId}`, newComment);
         setNewComment('');
+        toast.success('Thank you for your feedback!', {
+            autoClose: 3000,
+            closeButton: false,
+        });
         if (onCommentAdded) {
             onCommentAdded();
         }
@@ -30,14 +41,28 @@ const CommentsSection = ({ serviceId, onCommentAdded }) => {
     const handleDeleteComment = () => {
         setComment('');
         localStorage.removeItem(`comment-${serviceId}`);
-        toast.success('Comment deleted successfully!');
+        toast.success('Comment deleted successfully!', {
+            autoClose: 3000,
+            closeButton: false,
+        });
     };
 
     const handleSaveComment = () => {
+        if (newComment.trim() === '') {
+            toast.error('Comment cannot be empty', {
+                autoClose: 3000,
+                closeButton: false,
+            });
+            return;
+        }
         setComment(newComment);
         localStorage.setItem(`comment-${serviceId}`, newComment);
         setNewComment('');
         setEditMode(false);
+        toast.success('Comment updated successfully!', {
+            autoClose: 3000,
+            closeButton: false,
+        });
         if (onCommentAdded) {
             onCommentAdded();
         }

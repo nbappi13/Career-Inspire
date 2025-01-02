@@ -9,7 +9,8 @@ import ForgotPassword from "../pages/Authentication/ForgotPassword";
 import ProtectedRoute from "../components/ProtectedRoute";
 import AuthProvider from "../context/AuthContext";
 import NotFound from "../pages/NotFound/NotFound";
-import Resources from "../pages/Resources/Resources"; // Import Resources
+import Resources from "../pages/Resources/Resources";
+import Services from "../pages/Services/Services";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: "service-details/:id",
-        element: <ProtectedRoute />, 
+        element: <ProtectedRoute />,
         children: [
           {
             path: "",
@@ -63,8 +64,12 @@ const router = createBrowserRouter([
         ],
       },
       {
+        path: "services",
+        element: <Services />,
+      },
+      {
         path: "*",
-        element: <NotFound />, // Catch-all route for 404 Not Found page
+        element: <NotFound />,
       }
     ]
   },

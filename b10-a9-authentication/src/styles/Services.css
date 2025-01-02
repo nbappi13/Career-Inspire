@@ -1,0 +1,135 @@
+.services-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.services-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.service-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.service-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.service-name {
+    font-size: 1.8rem;
+    color: #007bff;
+}
+
+.service-pricing {
+    font-size: 1.2rem;
+    color: #333;
+    background-color: #e7f3ff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    animation: slideInRight 1s ease-in-out;
+}
+
+.service-targetAudience {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 15px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.service-details {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.5;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.service-quote {
+    font-style: italic;
+    color: #555;
+    margin: 20px 0;
+    padding-left: 10px;
+    border-left: 4px solid #007bff;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.service-footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #007bff;
+}
+
+.service-footer a,
+.service-footer .learn-more-link {
+    color: #007bff;
+    text-decoration: none;
+    border-bottom: 1px dashed #007bff;
+    transition: color 0.3s ease-in-out, border-bottom-color 0.3s ease-in-out;
+}
+
+.service-footer a:hover,
+.service-footer .learn-more-link:hover {
+    color: #0056b3;
+    border-bottom-color: #0056b3;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@media (min-width: 640px) {
+    .service-header {
+        flex-direction: row;
+    }
+
+    .service-name {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-title {
+        font-size: 3rem;
+    }
+
+    .service-name {
+        font-size: 2.2rem;
+    }
+
+    .service-pricing {
+        font-size: 1.4rem;
+    }
+}
