@@ -28,7 +28,7 @@ const SuccessStories = () => {
       <h2 className="text-center text-4xl font-bold text-primary mb-8">Success Stories</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {successStoriesData.map(({ id, name, image, story }) => (
-          <div key={id} className="card shadow-lg border border-gray-200 rounded-lg p-6 bg-gradient-to-r from-blue-50 to-blue-100 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-200 transition-all duration-300">
+          <div key={id} className="card shadow-lg border border-gray-200 rounded-lg p-6 bg-gradient-to-r from-blue-50 to-blue-100 hover:bg-gradient-to-br hover:from-blue-100 hover:to-orange-300 transition-all duration-300">
             <img
               src={image}
               alt={name}

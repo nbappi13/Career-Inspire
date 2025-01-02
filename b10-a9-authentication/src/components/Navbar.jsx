@@ -26,14 +26,8 @@ const AppNavbar = () => {
 
   const handleLinkClick = (e, target) => {
     e.preventDefault();
-    const element = document.getElementById(target);
-    if (element) {
-        window.scrollTo({
-            top: element.offsetTop - 70,
-            behavior: 'smooth',
-        });
-        setShowDropdown(false);
-    }
+    navigate(`/#${target}`);
+    setShowDropdown(false);
   };
 
   const handleHomeClick = (e) => {

@@ -11,6 +11,8 @@ import '../../styles/Slider.css';
 import slide1 from '../../assets/slider/slide1.jpg';
 import slide2 from '../../assets/slider/slide2.jpg';
 import slide3 from '../../assets/slider/slide3.jpg';
+import slide4 from '../../assets/slider/slide4.jpg';
+import slide5 from '../../assets/slider/slide5.jpg';
 
 const Slider = () => {
   useEffect(() => {
@@ -43,6 +45,12 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img src={slide3} alt="Slide 3" className="slider-image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={slide4} alt="Slide 4" className="slider-image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={slide5} alt="Slide 5" className="slider-image" />
         </SwiperSlide>
       </Swiper>
     </div>

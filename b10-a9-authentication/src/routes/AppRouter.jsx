@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
-import Home from "../pages/home/Home";
+import Home from "../pages/Home/Home";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 import Login from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
@@ -9,41 +9,48 @@ import ForgotPassword from "../pages/Authentication/ForgotPassword";
 import ProtectedRoute from "../components/ProtectedRoute";
 import AuthProvider from "../context/AuthContext";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <AuthProvider><MainLayout /></AuthProvider>,
     children: [
-        {
-            path: "/",
-            element: <Home />,
-        },
-        {
-          path: "service-details/:id",
-          element: <ServiceDetails />,  
-        },
-        {
-          path: "login",
-          element: <Login />,
-        },
-        {
-          path: "signup", 
-          element: <Register />,
-        },
-        {
-          path: "profile",
-          element: <ProtectedRoute />,
-          children: [
-            {
-              path: "/profile",
-              element: <Profile />,
-            }
-          ],
-        },
-        {
-          path: "forgot-password",
-          element: <ForgotPassword />,
-        }
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "service-details/:id",
+        element: <ProtectedRoute />, 
+        children: [
+          {
+            path: "",
+            element: <ServiceDetails />,
+          },
+        ],
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <Register />,
+      },
+      {
+        path: "profile",
+        element: <ProtectedRoute />,
+        children: [
+          {
+            path: "/profile",
+            element: <Profile />,
+          }
+        ],
+      },
+      {
+        path: "forgot-password",
+        element: <ForgotPassword />,
+      }
     ]
   },
 ]);
