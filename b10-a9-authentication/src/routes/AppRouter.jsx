@@ -8,7 +8,8 @@ import Profile from "../pages/Profile/Profile";
 import ForgotPassword from "../pages/Authentication/ForgotPassword";
 import ProtectedRoute from "../components/ProtectedRoute";
 import AuthProvider from "../context/AuthContext";
-import NotFound from "../pages/NotFound/NotFound"; // Import NotFound
+import NotFound from "../pages/NotFound/NotFound";
+import Resources from "../pages/Resources/Resources"; // Import Resources
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,16 @@ const router = createBrowserRouter([
       {
         path: "forgot-password",
         element: <ForgotPassword />,
+      },
+      {
+        path: "resources",
+        element: <ProtectedRoute />,
+        children: [
+          {
+            path: "",
+            element: <Resources />,
+          },
+        ],
       },
       {
         path: "*",

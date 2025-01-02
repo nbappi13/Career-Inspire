@@ -18,15 +18,22 @@ const AuthProvider = ({ children }) => {
     }, []);
 
     const login = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password);
+        return signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                setCurrentUser(userCredential.user);
+            });
     };
 
     const logout = () => {
-        return signOut(auth);
+        return signOut(auth).then(() => {
+            setCurrentUser(null);
+        });
     };
 
     const updateUserProfile = (profile) => {
-        return updateProfile(currentUser, profile);
+        return updateProfile(currentUser, profile).then(() => {
+            setCurrentUser({ ...currentUser, ...profile });
+        });
     };
 
     return (

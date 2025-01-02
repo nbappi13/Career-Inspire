@@ -1,0 +1,141 @@
+/* Resources.css */
+
+.resources-container {
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+    background: linear-gradient(135deg, #e3f2fd, #f9f9f9);
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.resources-title {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    color: #003c8f;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.resources-title::after {
+    content: '';
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(90deg, #007bff, #00c6ff);
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.resources-description {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.resources-section {
+    margin-bottom: 40px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.resources-section:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #e0f7fa, #e1f5fe);
+}
+
+.resources-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #007bff, #00c6ff);
+    border-radius: 12px 12px 0 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.resources-section:hover::before {
+    opacity: 1;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #007bff;
+    text-transform: capitalize;
+    font-weight: 600;
+    position: relative;
+}
+
+.section-description {
+    font-size: 1.2rem;
+    color: #444;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+@media (min-width: 768px) {
+    .resources-container {
+        padding: 60px;
+    }
+
+    .resources-title {
+        font-size: 4rem;
+    }
+
+    .resources-description {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .section-description {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .resources-container {
+        padding: 80px;
+    }
+
+    .resources-title {
+        font-size: 4.5rem;
+    }
+
+    .resources-description {
+        font-size: 2rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -88,11 +88,13 @@ const AppNavbar = () => {
           Services
         </Link>
       </Typography>
-      <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
-        <Link to="/resources" className="flex items-center">
-          Resources
-        </Link>
-      </Typography>
+      {currentUser && (
+        <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
+          <Link to="/resources" className="flex items-center">
+            Resources
+          </Link>
+        </Typography>
+      )}
       <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
         <Link to="/about" className="flex items-center">
           About
