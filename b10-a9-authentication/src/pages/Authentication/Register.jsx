@@ -5,6 +5,8 @@ import { GoogleAuthProvider, GithubAuthProvider, createUserWithEmailAndPassword,
 import { auth } from '../../firebase/firebase.config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../../styles/Register.css'; 
 
 const Register = () => {
@@ -26,6 +28,7 @@ const Register = () => {
                 displayName: name,
                 photoURL: photoURL
             });
+            toast.success('Logged in successfully!');
             navigate('/');
         } catch (error) {
             console.error('Error registering:', error);
@@ -35,6 +38,7 @@ const Register = () => {
     const handleGoogleLogin = async () => {
         try {
             const result = await signInWithPopup(auth, googleProvider);
+            toast.success('Logged in successfully!');
             navigate('/');
         } catch (error) {
             console.error('Error logging in with Google:', error);
@@ -44,6 +48,7 @@ const Register = () => {
     const handleGithubLogin = async () => {
         try {
             const result = await signInWithPopup(auth, githubProvider);
+            toast.success('Logged in successfully!');
             navigate('/');
         } catch (error) {
             console.error('Error logging in with GitHub:', error);
@@ -56,6 +61,7 @@ const Register = () => {
 
     return (
         <div className="register-container">
+            <ToastContainer />
             <h2>Sign Up</h2>
             <form onSubmit={handleRegister}>
                 <div className="form-group">

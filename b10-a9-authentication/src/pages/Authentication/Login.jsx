@@ -5,6 +5,8 @@ import { GoogleAuthProvider, signInWithPopup, GithubAuthProvider } from 'firebas
 import { auth } from '../../firebase/firebase.config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../../styles/Login.css'; 
 
 const Login = () => {
@@ -20,6 +22,7 @@ const Login = () => {
         e.preventDefault();
         try {
             await login(email, password);
+            toast.success('Logged in successfully!');
             navigate('/');
         } catch (error) {
             console.error('Error logging in:', error);
@@ -29,6 +32,7 @@ const Login = () => {
     const handleGoogleLogin = async () => {
         try {
             const result = await signInWithPopup(auth, googleProvider);
+            toast.success('Logged in successfully!');
             navigate('/');
         } catch (error) {
             console.error('Error logging in with Google:', error);
@@ -38,6 +42,7 @@ const Login = () => {
     const handleGithubLogin = async () => {
         try {
             const result = await signInWithPopup(auth, githubProvider);
+            toast.success('Logged in successfully!');
             navigate('/');
         } catch (error) {
             console.error('Error logging in with GitHub:', error);
@@ -50,6 +55,7 @@ const Login = () => {
 
     return (
         <div className="login-container">
+            <ToastContainer />
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
                 <div className="form-group">
