@@ -9,7 +9,7 @@ const AppNavbar = () => {
   const [openNav, setOpenNav] = useState(false);
   const { currentUser, logout } = useContext(AuthContext);
   const [showDropdown, setShowDropdown] = useState(false);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   React.useEffect(() => {
     window.addEventListener('resize', () => window.innerWidth >= 960 && setOpenNav(false));

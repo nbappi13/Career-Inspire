@@ -1,4 +1,3 @@
-
 .comments-section {
     margin-top: 20px;
     padding: 20px;
@@ -8,19 +7,55 @@
     background-color: #f9f9f9;
 }
 
-.comments-list {
-    margin-bottom: 20px;
-    max-height: 300px;
-    overflow-y: auto;
+.comment {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
     padding: 10px;
+    margin-bottom: 20px;
     background-color: white;
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.comments-list p {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
+.comment-text {
+    flex: 1;
     color: #333;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.comment-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 10px;
+}
+
+.comment-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+    margin-bottom: 5px;
+    width: 80px;
+    text-align: center;
+}
+
+.comment-button:hover {
+    background-color: #45a049;
+}
+
+.delete-button {
+    background-color: #f44336;
+}
+
+.delete-button:hover {
+    background-color: #e31b0c;
 }
 
 .comment-form {
@@ -38,19 +73,12 @@
     font-size: 16px;
 }
 
-.comment-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 16px;
+.add-comment-button {
+    background-color: #007bff;
 }
 
-.comment-button:hover {
-    background-color: #45a049;
+.add-comment-button:hover {
+    background-color: #0056b3;
 }
 
 @media (min-width: 640px) {
@@ -73,7 +101,5 @@
         padding: 40px;
     }
 
-    .comment-button {
-        padding: 15px 30px;
-    }
+
 }
