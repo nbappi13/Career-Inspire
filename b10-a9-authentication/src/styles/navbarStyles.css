@@ -1,0 +1,87 @@
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar ul li {
+    position: relative;
+    list-style: none;
+}
+
+.dropdown-arrow {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 5px;
+    border-radius: 50%;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.dropdown-arrow:hover {
+    background-color: orange;
+}
+
+.navbar ul li .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: -50px; 
+    z-index: 20;
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    min-width: 200px;
+    padding: 10px 0;
+}
+
+.navbar ul li:hover .dropdown-menu,
+.navbar ul li:focus-within .dropdown-menu {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.navbar ul li .dropdown-menu li {
+    text-align: left;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar ul li .dropdown-menu li:hover {
+    background-color: #f0f0f0;
+}
+
+.navbar ul li .dropdown-menu li a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li .dropdown-menu li a:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.navbar ul li .dropdown-menu.show {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}

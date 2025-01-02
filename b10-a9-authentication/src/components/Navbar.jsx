@@ -1,12 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Navbar, MobileNav, Typography, Button, IconButton } from '@material-tailwind/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; 
 import { AuthContext } from '../context/AuthContext';
 import logo from '../assets/logo.png';
+import '../styles/navbarStyles.css'; 
 
 const AppNavbar = () => {
-  const [openNav, setOpenNav] = React.useState(false);
+  const [openNav, setOpenNav] = useState(false);
   const { currentUser, logout } = useContext(AuthContext);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   React.useEffect(() => {
     window.addEventListener('resize', () => window.innerWidth >= 960 && setOpenNav(false));
@@ -16,12 +19,75 @@ const AppNavbar = () => {
     logout();
   };
 
+  const handleDropdownClick = (e) => {
+    e.preventDefault();
+    setShowDropdown(!showDropdown);
+  };
+
+  const handleLinkClick = (e, target) => {
+    e.preventDefault();
+    const element = document.getElementById(target);
+    if (element) {
+        window.scrollTo({
+            top: element.offsetTop - 70,
+            behavior: 'smooth',
+        });
+        setShowDropdown(false);
+    }
+  };
+
+  const handleHomeClick = (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+    navigate('/');
+  };
+
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
-        <Link to="/" className="flex items-center">
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal relative"
+      >
+        <Link to="/" onClick={handleHomeClick}> 
           Home
         </Link>
+        <button 
+          className="dropdown-arrow"
+          onClick={handleDropdownClick}
+        >
+          <svg
+            className={`w-4 h-4 ml-1 transition-transform ${showDropdown ? 'rotate-180' : ''}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </button>
+        {showDropdown && (
+          <ul className="dropdown-menu show">
+            <li>
+              <a href="#services" onClick={(e) => handleLinkClick(e, 'services')}>Services</a>
+            </li>
+            <li>
+              <a href="#why-career-inspire" onClick={(e) => handleLinkClick(e, 'why-career-inspire')}>Why Career Inspire</a>
+            </li>
+            <li>
+              <a href="#success-stories" onClick={(e) => handleLinkClick(e, 'success-stories')}>Success Stories</a>
+            </li>
+          </ul>
+        )}
       </Typography>
       <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
         <Link to="/services" className="flex items-center">
