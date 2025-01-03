@@ -11,7 +11,7 @@
 }
 
 .other-footer {
-    background-color: rgb(138, 143, 138); 
+    background-color:darkmagenta; 
 }
 
 .footer-content {
@@ -101,6 +101,7 @@
 
 .footer-bottom p {
     margin: 0;
+    color:burlywood;
 }
 
 @media (max-width: 640px) {
