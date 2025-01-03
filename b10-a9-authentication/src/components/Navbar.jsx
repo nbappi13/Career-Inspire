@@ -1,17 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Navbar, MobileNav, Typography, Button, IconButton } from '@material-tailwind/react';
-import { Link, useNavigate } from 'react-router-dom'; 
+import { Link, useNavigate, useLocation } from 'react-router-dom'; 
 import { AuthContext } from '../context/AuthContext';
 import logo from '../assets/logo.png';
-import '../styles/navbar.css'; 
+import '../styles/navbar.css';
 
 const AppNavbar = () => {
   const [openNav, setOpenNav] = useState(false);
   const { currentUser, logout } = useContext(AuthContext);
   const [showDropdown, setShowDropdown] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const location = useLocation(); 
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener('resize', () => window.innerWidth >= 960 && setOpenNav(false));
   }, []);
 
@@ -45,9 +46,9 @@ const AppNavbar = () => {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal relative"
+        className={`p-1 font-normal relative ${location.pathname === '/' ? 'active' : ''}`}
       >
-        <Link to="/" onClick={handleHomeClick}> 
+        <Link to="/" onClick={handleHomeClick}>
           Home
         </Link>
         <button 
@@ -71,40 +72,60 @@ const AppNavbar = () => {
         </button>
         {showDropdown && (
           <ul className="dropdown-menu show">
-            <li>
+            <li className={location.hash === '#services' ? 'active' : ''}>
               <a href="#services" onClick={(e) => handleLinkClick(e, 'services')}>Services</a>
             </li>
-            <li>
+            <li className={location.hash === '#why-career-inspire' ? 'active' : ''}>
               <a href="#why-career-inspire" onClick={(e) => handleLinkClick(e, 'why-career-inspire')}>Why Career Inspire</a>
             </li>
-            <li>
+            <li className={location.hash === '#success-stories' ? 'active' : ''}>
               <a href="#success-stories" onClick={(e) => handleLinkClick(e, 'success-stories')}>Success Stories</a>
             </li>
-            <li>
+            <li className={location.hash === '#about-us' ? 'active' : ''}>
               <a href="#about-us" onClick={(e) => handleLinkClick(e, 'about-us')}>About Us</a>
             </li>
           </ul>
         )}
       </Typography>
-      <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
+      <Typography 
+        as="li" 
+        variant="small" 
+        color="blue-gray" 
+        className={`p-1 font-normal ${location.pathname === '/services' ? 'active' : ''}`}
+      >
         <Link to="/services" className="flex items-center">
           Services
         </Link>
       </Typography>
       {currentUser && (
-        <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
+        <Typography 
+          as="li" 
+          variant="small" 
+          color="blue-gray" 
+          className={`p-1 font-normal ${location.pathname === '/resources' ? 'active' : ''}`}
+        >
           <Link to="/resources" className="flex items-center">
             Resources
           </Link>
         </Typography>
       )}
-      <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
+      <Typography 
+        as="li" 
+        variant="small" 
+        color="blue-gray" 
+        className={`p-1 font-normal ${location.pathname === '/contact-us' ? 'active' : ''}`}
+      >
         <Link to="/contact-us" className="flex items-center">
           Contact Us
         </Link>
       </Typography>
       {currentUser && (
-        <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
+        <Typography 
+          as="li" 
+          variant="small" 
+          color="blue-gray" 
+          className={`p-1 font-normal ${location.pathname === '/profile' ? 'active' : ''}`}
+        >
           <Link to="/profile" className="flex items-center">
             My Profile
           </Link>
