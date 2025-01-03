@@ -54,10 +54,13 @@ const ServicesSection = () => {
     };
 
     return (
-        <div className={`services-section ${screenSize}`}>
-            {visibleServices.map(service => (
-                <ServiceCard key={service.id} service={service} />
-            ))}
+        <div className="services-section-container">
+            <h2 className="section-title">Explore Our Offerings</h2>
+            <div className={`services-section ${screenSize}`}>
+                {visibleServices.map(service => (
+                    <ServiceCard key={service.id} service={service} />
+                ))}
+            </div>
             <button className="see-more-button" onClick={handleSeeMore}>
                 {showAll ? 'See Less' : 'See More'}
             </button>

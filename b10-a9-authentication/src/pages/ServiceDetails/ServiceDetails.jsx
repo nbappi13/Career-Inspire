@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Modal from 'react-modal';
+import { Helmet, HelmetProvider } from 'react-helmet-async'; 
 import '../../styles/ServiceDetails.css';
 import CommentsSection from './CommentsSection';
 
@@ -32,7 +33,7 @@ const ServiceDetails = () => {
         setIsBooked(true);
         setTimeout(() => {
             setModalIsOpen(false);
-        }, 3000); // Close the modal after 3 seconds
+        }, 3000); 
     };
 
     if (!service) {
@@ -40,42 +41,48 @@ const ServiceDetails = () => {
     }
 
     return (
-        <div className="service-details">
-            <Modal
-    isOpen={modalIsOpen}
-    onRequestClose={() => setModalIsOpen(false)}
-    contentLabel="Booking Confirmation"
-    className="booking-modal"
-    overlayClassName="booking-modal-overlay"
-    closeTimeoutMS={500}
->
-    <h2>🎉 Booking Confirmed!</h2>
-    <p>You have successfully booked this service. Thank you!</p>
-    <button onClick={() => setModalIsOpen(false)}>Close</button>
-</Modal>
+        <HelmetProvider>
+            <Helmet>
+                <title>{`Service Details - ${service.serviceName}`}</title>
+                <meta name="description" content={`Learn more about our ${service.serviceName} service offered by ${service.counselor}.`} />
+            </Helmet>
+            <div className="service-details">
+                <Modal
+                    isOpen={modalIsOpen}
+                    onRequestClose={() => setModalIsOpen(false)}
+                    contentLabel="Booking Confirmation"
+                    className="booking-modal"
+                    overlayClassName="booking-modal-overlay"
+                    closeTimeoutMS={500}
+                >
+                    <h2>🎉 Booking Confirmed!</h2>
+                    <p>You have successfully booked this service. Thank you!</p>
+                    <button onClick={() => setModalIsOpen(false)}>Close</button>
+                </Modal>
 
-            <img src={service.image} alt={service.serviceName} className="service-image" />
-            <h2><strong>Counselor:</strong> {service.counselor}</h2>
-            <h2 className="text-blue-300">Service: {service.serviceName}</h2>
-            <p><strong>Category:</strong> {service.category}</p>
-            <p><strong>Description:</strong> {service.description}</p>
-            <p><strong>Pricing:</strong> {service.pricing}</p>
-            <p><strong>Duration:</strong> {service.duration}</p>
-            <p><strong>Rating:</strong> {service.rating}</p>
-            <p><strong>Location:</strong> {service.location}</p>
-            <p><strong>Target Audience:</strong> {service.targetAudience}</p>
-            <p><strong>Counselor Qualifications:</strong> {service.counselorQualifications}</p>
-            <p><strong>Session Format:</strong> {service.sessionFormat}</p>
-            
-            <button 
-                className="book-now-button" 
-                onClick={handleBookNowClick} 
-                disabled={isBooked}
-            >
-                {isBooked ? 'Booked' : 'Book Now'}
-            </button>
-            <CommentsSection serviceId={id} onCommentAdded={handleCommentAdded} />
-        </div>
+                <img src={service.image} alt={service.serviceName} className="service-image" />
+                <h2><strong>Counselor:</strong> {service.counselor}</h2>
+                <h2 className="text-blue-300">Service: {service.serviceName}</h2>
+                <p><strong>Category:</strong> {service.category}</p>
+                <p><strong>Description:</strong> {service.description}</p>
+                <p><strong>Pricing:</strong> {service.pricing}</p>
+                <p><strong>Duration:</strong> {service.duration}</p>
+                <p><strong>Rating:</strong> {service.rating}</p>
+                <p><strong>Location:</strong> {service.location}</p>
+                <p><strong>Target Audience:</strong> {service.targetAudience}</p>
+                <p><strong>Counselor Qualifications:</strong> {service.counselorQualifications}</p>
+                <p><strong>Session Format:</strong> {service.sessionFormat}</p>
+                
+                <button 
+                    className="book-now-button" 
+                    onClick={handleBookNowClick} 
+                    disabled={isBooked}
+                >
+                    {isBooked ? 'Booked' : 'Book Now'}
+                </button>
+                <CommentsSection serviceId={id} onCommentAdded={handleCommentAdded} />
+            </div>
+        </HelmetProvider>
     );
 };
 
