@@ -3,6 +3,7 @@ import Slider from './Slider';
 import ServicesSection from './ServicesSection';
 import WhyCareerInspire from './WhyCareerInspire';
 import SuccessStories from './SuccessStories';
+import AboutUs from './AboutUs';
 import { useLocation } from 'react-router-dom';
 
 const Home = () => {
@@ -41,6 +42,9 @@ const Home = () => {
             </div>
             <div id="success-stories">
                 <SuccessStories />
+            </div>
+            <div id="about-us">
+                <AboutUs />
             </div>
         </div>
     );

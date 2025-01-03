@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Modal from 'react-modal';
-import './ServiceDetails.css';
+import '../../styles/ServiceDetails.css';
 import CommentsSection from './CommentsSection';
 
 const ServiceDetails = () => {

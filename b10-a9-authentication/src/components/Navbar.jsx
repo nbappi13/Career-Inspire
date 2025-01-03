@@ -3,7 +3,7 @@ import { Navbar, MobileNav, Typography, Button, IconButton } from '@material-tai
 import { Link, useNavigate } from 'react-router-dom'; 
 import { AuthContext } from '../context/AuthContext';
 import logo from '../assets/logo.png';
-import '../styles/navbarStyles.css'; 
+import '../styles/navbar.css'; 
 
 const AppNavbar = () => {
   const [openNav, setOpenNav] = useState(false);
@@ -80,6 +80,9 @@ const AppNavbar = () => {
             <li>
               <a href="#success-stories" onClick={(e) => handleLinkClick(e, 'success-stories')}>Success Stories</a>
             </li>
+            <li>
+              <a href="#about-us" onClick={(e) => handleLinkClick(e, 'about-us')}>About Us</a>
+            </li>
           </ul>
         )}
       </Typography>
@@ -96,8 +99,8 @@ const AppNavbar = () => {
         </Typography>
       )}
       <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
-        <Link to="/about" className="flex items-center">
-          About
+        <Link to="/contact-us" className="flex items-center">
+          Contact Us
         </Link>
       </Typography>
       {currentUser && (

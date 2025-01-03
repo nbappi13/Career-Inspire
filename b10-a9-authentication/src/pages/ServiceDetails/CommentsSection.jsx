@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './CommentsSection.css';
+import '../../styles/CommentsSection.css';
 
 const CommentsSection = ({ serviceId, onCommentAdded }) => {
     const [comment, setComment] = useState('');

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './ServiceCard.module.css';
+import styles from '../styles/ServiceCard.module.css';
 
 const ServiceCard = ({ service }) => {
     return (

@@ -1,0 +1,177 @@
+.contact-us-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.contact-us-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-us-header h1 {
+    font-size: 2.5rem;
+    color: #007bff;
+    animation: slideInDown 1s ease-in-out;
+}
+
+.header-description {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.contact-us-section, .contact-info-section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.section-content {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    animation: slideInRight 1s ease-in-out;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.form-group input, .form-group textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #007bff;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 25px; /* Rounded button */
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.contact-info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info-list li {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@media (min-width: 640px) {
+    .contact-form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .form-group {
+        width: calc(50% - 10px);
+    }
+
+    .form-group textarea {
+        width: calc(100% - 20px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .contact-us-header h1 {
+        font-size: 3rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .section-content, .contact-info-list li {
+        font-size: 1.2rem;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

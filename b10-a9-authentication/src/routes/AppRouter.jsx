@@ -11,6 +11,7 @@ import AuthProvider from "../context/AuthContext";
 import NotFound from "../pages/NotFound/NotFound";
 import Resources from "../pages/Resources/Resources";
 import Services from "../pages/Services/Services";
+import ContactUs from "../pages/Contact/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: "services",
         element: <Services />,
+      },
+      {
+        path: "contact-us",
+        element: <ContactUs />,
       },
       {
         path: "*",

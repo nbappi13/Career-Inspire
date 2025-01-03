@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ServiceCard from '../../components/ServiceCard';
-import './ServicesSection.css';
+import '../../styles/ServicesSection.css';
 
 const ServicesSection = () => {
     const [services, setServices] = useState([]);
