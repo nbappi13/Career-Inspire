@@ -1,10 +1,17 @@
-
+/* General Footer Styles */
 .footer-container {
-    background-color: #1a1a1a;
     color: white;
     padding: 40px 20px;
     font-family: 'Arial', sans-serif;
     margin-top: 40px;
+}
+
+.home-footer {
+    background-color: #1a1a1a; 
+}
+
+.other-footer {
+    background-color: rgb(138, 143, 138); 
 }
 
 .footer-content {
@@ -95,7 +102,6 @@
 .footer-bottom p {
     margin: 0;
 }
-
 
 @media (max-width: 640px) {
     .footer-content {

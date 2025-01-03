@@ -1,11 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa'; 
 import '../styles/Footer.css';
 
 const Footer = () => {
+    const location = useLocation();
+
+    const isHomePage = location.pathname === '/';
+
     return (
-        <footer className="footer-container">
+        <footer className={`footer-container ${isHomePage ? 'home-footer' : 'other-footer'}`}>
             <div className="footer-content">
                 <div className="footer-section footer-logo">
                     <h2>Career Inspire</h2>
@@ -18,7 +22,6 @@ const Footer = () => {
                         <li><Link to="/services">Services</Link></li>
                         <li><Link to="/resources">Resources</Link></li>
                         <li><Link to="/contact-us">Contact Us</Link></li>
-                
                     </ul>
                 </div>
                 <div className="footer-section footer-social">

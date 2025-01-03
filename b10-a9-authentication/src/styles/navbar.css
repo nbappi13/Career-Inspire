@@ -2,8 +2,16 @@
     position: sticky;
     top: 0;
     z-index: 10;
-    background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.home-navbar {
+    background-color: #4A90E2; 
+    color: white;
+}
+
+.other-navbar {
+    background-color:rosybrown; 
 }
 
 .navbar ul {
@@ -27,7 +35,7 @@
 }
 
 .dropdown-arrow:hover {
-    background-color: orange;
+    background-color: rgb(82, 54, 207);
 }
 
 .navbar ul li .dropdown-menu {

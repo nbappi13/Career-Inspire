@@ -101,13 +101,13 @@ const AppNavbar = () => {
         <Typography 
           as="li" 
           variant="small" 
-          color="blue-gray" 
-          className={`p-1 font-normal ${location.pathname === '/resources' ? 'active' : ''}`}
-        >
-          <Link to="/resources" className="flex items-center">
-            Resources
-          </Link>
-        </Typography>
+        color="blue-gray" 
+        className={`p-1 font-normal ${location.pathname === '/resources' ? 'active' : ''}`}
+      >
+        <Link to="/resources" className="flex items-center">
+          Resources
+        </Link>
+      </Typography>
       )}
       <Typography 
         as="li" 
@@ -135,7 +135,7 @@ const AppNavbar = () => {
   );
 
   return (
-    <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
+    <Navbar className={`sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 ${location.pathname === '/' ? 'home-navbar' : 'other-navbar'}`}>
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography as="a" href="/" className="mr-4 cursor-pointer py-1.5 font-medium">
           <img src={logo} alt="Logo" className="h-12 w-12 rounded-full inline-block mr-2"/>
