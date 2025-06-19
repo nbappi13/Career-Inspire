@@ -1,6 +1,6 @@
 ## Title: Career Inspire
 
-# GitHub Repository Link: https://github.com/programming-hero-web-course1/b10-a9-authentication-nbappi13 
+# GitHub Repository Link: [https://github.com/programming-hero-web-course1/b10-a9-authentication-nbappi13 ](https://github.com/nbappi13/Career-Inspire)
 
 # Firebase Live Link: https://b10-a9-authentication-8c895.web.app/
 
